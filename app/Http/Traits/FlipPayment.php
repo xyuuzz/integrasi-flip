@@ -27,22 +27,22 @@ Trait FlipPayment
         $url = self::url() . $path;
         $encoded_auth = self::encodeAuth($credential["apiKey"]);
 
+//        data yang akan dikirimkan ke api flip
         $payloads = [
-//            Judul dari pembayaran
             "title" => "Infaq Digital",
             "amount" => $data->amount,
             "type" => "SINGLE",
             "expired_date" => "2022-12-30 15:50",
             "redirect_url" => "http://www.youtube.com",
-            "step" => 2,
+            "step" => 3,
             "is_address_required" => 1,
             "is_phone_number_required" => 1,
             "sender_name" => $data->name,
             "sender_email" => $data->email,
             "sender_phone_number" => $data->phone_number,
             "sender_address" => $data->address,
-//            "sender_bank" => $data->bank,
-//            "sender_bank_type" => "bank_account"
+            "sender_bank" => $data->bank,
+            "sender_bank_type" => $data->bank_type
         ];
 
         $response = Http::asForm()

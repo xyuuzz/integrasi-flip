@@ -30,9 +30,8 @@ class UserController extends Controller
         $payment = FlipPayment::postTransaction($credential, $request);
         if($payment)
         {
-//            session()->flash("success", "Pembayaran akan di cek oleh admin, semoga amal jariyah anda diterima oleh Allah SWT.");
-//            return redirect("/");
-            return redirect("https://business.flip.id/sandbox/accept-payment-simulation/{$payment->link_id}");
+            session()->flash("payment", $payment);
+            return redirect("/");
         }
 
         session()->flash("failed", "Terjadi error pada saat pembayaran!");

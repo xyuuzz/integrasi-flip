@@ -14,5 +14,6 @@
         </p>
         <p>Kode Bank : {{$payment->bill_payment->receiver_bank_account->bank_code}}</p>
         <p>Pemilik Akun : {{$payment->bill_payment->receiver_bank_account->account_holder}}</p>
+        <p>Atau Bisa langsung klik link berikut : <a href="{{$payment->payment_url}}">Klik</a> </p>
     @endif
 </div>
